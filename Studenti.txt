@@ -1,0 +1,2 @@
+Nume Char 4 Null 
+Varsta Int 4 18 
