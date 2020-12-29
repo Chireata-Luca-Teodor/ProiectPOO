@@ -1,2 +1,2 @@
-Nume Char 4 Null 
+Nume Char 20 Null 
 Varsta Int 4 18 

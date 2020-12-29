@@ -1,3 +1,5 @@
 ﻿  ProiectPOO.cpp
-G:\Luca\Scoala\Anul 2 - Sem 1\POO\Proiect\ProiectPOO\ProiectPOO\ProiectPOO.cpp(88,14): warning C4101: 's': unreferenced local variable
+G:\Luca\Scoala\Anul 2 - Sem 1\POO\Proiect\ProiectPOO\ProiectPOO\Display.h(16,14): warning C4101: 's': unreferenced local variable
+G:\Luca\Scoala\Anul 2 - Sem 1\POO\Proiect\ProiectPOO\ProiectPOO\Insert.h(13,14): warning C4101: 'x': unreferenced local variable
+G:\Luca\Scoala\Anul 2 - Sem 1\POO\Proiect\ProiectPOO\ProiectPOO\Inter.h(19,14): warning C4101: 'x': unreferenced local variable
   ProiectPOO.vcxproj -> G:\Luca\Scoala\Anul 2 - Sem 1\POO\Proiect\ProiectPOO\ProiectPOO\x64\Debug\ProiectPOO.exe
