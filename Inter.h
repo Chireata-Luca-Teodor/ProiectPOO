@@ -25,7 +25,6 @@ public:
             test += input[i];
             i++;
         }
-        
         if (test == "CREATE")
         {
             test += input[i];
@@ -35,11 +34,23 @@ public:
                 test += input[i];
                 i++;
             }
-            
             if (test == "CREATE TABLE")
             {
+                test.clear();
+                i++;
+                while (input[i] != ' ')
+                {
+                    test += input[i];
+                    i++;
+                }
+                i++;
+                string text;
+                for (int j = i; j < input.length(); j++)
+                {
+                    text += input[j];
+                }
                 CreateTable c;
-                c.citire();
+                c.citire(test, text);
             }
         }
         else
@@ -208,6 +219,7 @@ public:
                 }
                 else if (test == "UPDATE")
                 {
+                    //UPDATE nume_tabela SET nume_coloana = valoare WHERE nume_coloana = valoare
                     i++;
                     test = "";
                     test += input[i];
@@ -218,6 +230,7 @@ public:
                         i++;
                     }
                     string table = test;
+                    string valoare1, valoare2, coloana1, coloana2;
                     i++;
                     test = "";
                     test += input[i];
@@ -229,27 +242,37 @@ public:
                     }
                     if (test == "SET")
                     {
-                        while (input[i] != '=' && i < input.length())
+                        i++;
+                        while (input[i] != ' ')
                         {
+                            coloana1 += input[i];
                             i++;
                         }
-                        i++; i++;
-                        while (input[i] != '=' && i < input.length())
+                        i += 3;
+                        while (input[i] != ' ')
                         {
+                            valoare1 += input[i];
                             i++;
                         }
-                        i++; i++;
-                        string value = "";
-                        while (i < input.length())
+                        i += 7;
+                        while (input[i] != ' ')
                         {
-                            value += input[i];
+                            coloana2 += input[i];
+                            i++;
+                        }
+                        i += 3;
+                        while (input[i] != ' ' && i < input.length())
+                        {
+                            valoare2 += input[i];
                             i++;
                         }
                         Update u;
-                        u.update(table, value);
+                        u.update(table, valoare1, coloana1, coloana2, valoare2);
                     }
 
                 }
-
+                else {
+                    cout << "Comanda este gresita!" << endl;
+                }
     }
 };

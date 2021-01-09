@@ -13,21 +13,24 @@ using namespace std;
 
 int main()
 {
-    cout << "Lista de comenzi:" << endl << endl;
-    cout << "CREATE TABLE nume_tabel ((nume_coloana_1, tip, dimensiune, val_implicita).....(..))" << endl;
-    cout << "DROP TABLE nume_tabel" << endl;
-    cout << "DISPLAY TABLE table_name" << endl;
-    cout << "INSERT INTO nume_tabela (x,y,z...)" << endl;
-    cout << "DELETE FROM nume_tabela WHERE nume_coloana = valoare" << endl;
-    cout << "SELECT (...) FROM nume_tabela" << endl;
-    cout << "UPDATE nume_tabela SET nume_coloana = valoare WHERE nume_coloana = valoare" << endl << endl;
-    cout << "Introduceti comanda :"<< endl;
     Inter i;
-    string text;
-    char input[100];
-    cin.getline(input, sizeof(input));
-    text += input;
-    i.interp(text);   
+    ifstream file;
+    file.open("copie2.txt");
+    string word;
+    char x;
+    int sw = 0;
+    while (!file.eof())
+    {
+        x = file.get();
+        while (x != '\n' && !file.eof())
+        {
+            word = word + x;
+            x = file.get();
+        }
+        i.interp(word);
+        word.clear();
+    }
+    file.close();
 }
 
 

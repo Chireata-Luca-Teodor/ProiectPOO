@@ -5,7 +5,6 @@ using namespace std;
 class DropTable
 {
     string nume_tabel;
-    //string file = nume_tabel + ".txt";
 public:
     void stergere(string nume_tabel)
     {
@@ -14,9 +13,9 @@ public:
         table = new char[nume_tabel.length() + 1];
         strcpy_s(table, nume_tabel.length() + 1, nume_tabel.c_str());
         if (remove(table) != 0)
-            perror("Error deleting table");
+            perror("Error deleting file");
         else
-            puts("Table successfully deleted");
+            puts("File successfully deleted");
     }
     friend class inter;
 };

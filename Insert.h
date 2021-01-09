@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Verificare.h"
 using namespace std;
 class Insert
 {
@@ -8,30 +9,38 @@ class Insert
 public:
     void insert(string nume_tabel, string text)
     {
-        string word;
-        string name;
-        char x;
-        ofstream file;
-        file.open(nume_tabel + ".dat", std::ios_base::app);
-        ifstream tabel;
-        tabel.open(nume_tabel + ".txt");
-        int i = 0;
-        string copie;
-        while (i < text.length())
+        verificare v;
+        int i = v.verif(nume_tabel);
+        if (i)
         {
-
-            while (text[i] != ',' && i < text.length())
+            string word;
+            string name;
+            char x;
+            ofstream file;
+            file.open(nume_tabel + ".dat", std::ios_base::app);
+            ifstream tabel;
+            tabel.open(nume_tabel + ".txt");
+            int i = 1;
+            string copie;
+            while (i < text.length())
             {
-                copie += text[i];
+
+                while (text[i] != ',' && i < text.length())
+                {
+                    copie += text[i];
+                    i++;
+                }
+                file << copie << " ";
+                copie = "";
                 i++;
             }
-            file << copie << " ";
-            copie = "";
-            i++;
+            file << endl;
+            file.close();
+            tabel.close();
         }
-        file << endl;
-        file.close();
-        tabel.close();
+        else
+        {
+            cout << "fisierul nu exista :(";
+        }
     }
-    friend class inter;
 };

@@ -44,5 +44,12 @@
     <ClInclude Include="Inter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Verificare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="copie2.txt" />
+    <Text Include="files.txt" />
   </ItemGroup>
 </Project>

@@ -63,5 +63,4 @@ public:
         }
         file.close();
     }
-    friend class Inter;
 };

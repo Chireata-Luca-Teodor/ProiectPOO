@@ -145,11 +145,16 @@
     <ClInclude Include="CreateTable.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="DropTable.h" />
+    <ClInclude Include="Verificare.h" />
     <ClInclude Include="Inter.h" />
     <ClInclude Include="Insert.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="Update.h" />
     <ClInclude Include="Delete.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="copie2.txt" />
+    <Text Include="files.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

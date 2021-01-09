@@ -34,13 +34,49 @@ public:
                     word = word + x;
                     x = file.get();
                 }
-                cout << word << "     |";
-                word.clear();
+                if (word != "")
+                {
+                    cout << word << "     |";
+                    word.clear();
+                }
+
             }
 
         }
+        cout << endl;
         file.close();
+        ifstream data;
+        data.open(nume_tabel + ".dat");
+        x = data.get();
 
+        while (x != ' ')
+        {
+            word = word + x;
+            x = data.get();
+        }
+        cout << word << " ";
+        word.clear();
+        while (!data.eof())
+        {
+            x = data.get();
+            while (x != ' ' && !data.eof())
+            {
+                word = word + x;
+                x = data.get();
+            }
+            if (word != "")
+            {
+                cout << word << " ";
+                word.clear();
+            }
+            if (x == '\n')
+            {
+                cout << endl;
+            }
+
+        }
+        data.close();
+        cout << endl;
     }
     friend class inter;
 };

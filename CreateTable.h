@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Verificare.h"
 using namespace std;
 class CreateTable
 {
@@ -12,47 +13,47 @@ private:
     int dimensiune;
     string valoare_implicita;
 public:
-    //CREATE TABLE nume_tabel (nume_coloana1, tip, dimensiune, val_implicita) (..)...
-    void citire()
+    void citire(string nume_tabel, string text)
     {
-        cout << "Nume Tabel : ";
-        cin >> nume_tabel;
-        cout << endl;
-        cout << "Numar coloane : ";
-        cin >> nr_coloane;
-        cout << endl;
-        string txt = ".txt";
-        if (nr_coloane > 0)
+        verificare v;
+        if (!v.verif(nume_tabel))
         {
+            ofstream f;
+            f.open("files.txt", std::ios_base::app);
+            f << nume_tabel << " " << endl;
+            f.close();
             ofstream file;
-            file.open(nume_tabel + txt);
-            string buffer;
-            for (int i = 0; i < nr_coloane; i++)
+            file.open(nume_tabel + ".txt");
+            if (text[0] = '(')
             {
-                cout << "Nume Coloana " << i << " :";
-                cin >> nume_coloana;
-                file << nume_coloana << ' ';
-                getline(cin, buffer);
-                cout << endl;
-                cout << "Tip: ";
-                cin >> tip;
-                file << tip << ' ';
-                getline(cin, buffer);
-                cout << endl;
-                cout << "Dimensiune: ";
-                cin >> dimensiune;
-                file << dimensiune << ' ';
-                getline(cin, buffer);
-                cout << endl;
-                cout << "Valoare implicita: ";
-                cin >> valoare_implicita;
-                file << valoare_implicita << ' ';
-                getline(cin, buffer);
-                cout << endl;
-                file << endl;
+                for (int i = 1; i < text.length(); i++)
+                {
+                    if (text[i] != '(' && text[i] != ',' && text[i] != ')' && text[i] != ' ')
+                    {
+                        file << text[i];
+                        cout << text[i];
+                    }
+                    else if (text[i] == ',')
+                    {
+                        file << " ";
+                        cout << " ";
+                    }
+                    else if (text[i] == ')')
+                    {
+                        file << " ";
+                        file << endl;
+                        cout << endl;
+                    }
+
+                }
             }
             file.close();
         }
+        else
+        {
+            cout << "fisierul deja exista!";
+        }
     }
     friend class inter;
+    friend class verificare;
 };
