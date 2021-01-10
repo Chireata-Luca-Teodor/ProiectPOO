@@ -43,85 +43,78 @@ public:
                     }
                     if (word != coloana2)//verificam daca am ajuns la coloana cautata
                     {
-                        while (x != '\n' && !file3.eof() && i <= word3.length())
+                        while (x != '\n' && !file3.eof())
                         {
                             x = file3.get();
                         }
-                        if (i <= word3.length())
+                        while (word3[i] != ' ' && i < word3.length())
                         {
-                            while (word3[i] != ' ' && i < word3.length())
-                            {
-                                i++;
-                            };
                             i++;
-                        }
-                        
+                        };
+                        i++;
                     }
                     else
                     {
-                        if (i <= word3.length())
+                        string word4;
+                        while (word3[i] != ' ')//verificam daca valoarea = parametru
                         {
-                            string word4;
-                            while (word3[i] != ' ')//verificam daca valoarea = parametru
+                            word4 += word3[i];
+                            i++;
+                        }
+                        if (word4 == valoare2)
+                        {
+                            int j = 0;
+                            file4.open(nume_tabel + ".txt");
+                            while (j < word3.length())
                             {
-                                word4 += word3[i];
-                                i++;
-                            }
-                            if (word4 == valoare2)
-                            {
-                                int j = 0;
-                                file4.open(nume_tabel + ".txt");
-                                while (j < word3.length())
+                                while (!file4.eof())
                                 {
-                                    while (!file4.eof())
+                                    x = file4.get();//parcurgem coloanele din txt
+                                    while (x != ' ' && !file4.eof())
                                     {
-                                        x = file4.get();//parcurgem coloanele din txt
-                                        while (x != ' ' && !file4.eof())
-                                        {
-                                            word5 += x;
-                                            x = file4.get();
-
-                                        }
-                                        while (x != '\n' && !file4.eof())
-                                        {
-                                            x = file4.get();
-                                        }
-                                        if (word5 == coloana1)
-                                        {
-                                            file2 << valoare1 << " ";
-                                            while (word3[j] != ' ' && j < word3.length())
-                                            {
-                                                j++;
-                                            }
-                                            j++;
-                                        }
-                                        else
-                                        {
-                                            if (word3[j] != '\n' && j <= word3.length())
-                                            {
-                                                string word6;
-                                                while (word3[j] != ' ' && j < word3.length())
-                                                {
-                                                    word6 += word3[j];
-                                                    j++;
-                                                }
-                                                file2 << word6 << " ";
-                                                j++;
-                                                word6.clear();
-                                            }
-                                        }
-                                        word5.clear();
-
+                                        word5 += x;
+                                        x = file4.get();
 
                                     }
-                                    file2 << endl;
+                                    while (x != '\n' && !file4.eof())
+                                    {
+                                        x = file4.get();
+                                    }
+                                    if (word5 == coloana1)
+                                    {
+                                        file2 << valoare1 << " ";
+                                        while (word3[j] != ' ' && j < word3.length())
+                                        {
+                                            j++;
+                                        }
+                                        j++;
+                                    }
+                                    else
+                                    {
+                                        if (word3[j] != '\n')
+                                        {
+                                            string word6;
+                                            while (word3[j] != ' ' && j < word3.length())
+                                            {
+                                                word6 += word3[j];
+                                                j++;
+                                            }
+                                            file2 << word6 << " ";
+                                            j++;
+                                            word6.clear();
+                                        }
+                                    }
+                                    word5.clear();
+
+
                                 }
-                                file4.close();
+                                file2 << endl;
                             }
-                            else
-                            {
-                                file2 << word3 << endl;
-                            }
+                            file4.close();
+                        }
+                        else
+                        {
+                            file2 << word3 << endl;
                         }
                     }
                     word.clear();
@@ -143,7 +136,6 @@ public:
         {
             cout << "fisierul nu exista :(";
         }
-        
     }
 
 };

@@ -9,28 +9,13 @@
 #include "Update.h"
 #include "Delete.h"
 #include "Inter.h"
+#include "menu.h"
 using namespace std;
 
 int main()
 {
-    Inter i;
-    ifstream file;
-    file.open("copie2.txt");
-    string word;
-    char x;
-    int sw = 0;
-    while (!file.eof())
-    {
-        x = file.get();
-        while (x != '\n' && !file.eof())
-        {
-            word = word + x;
-            x = file.get();
-        }
-        i.interp(word);
-        word.clear();
-    }
-    file.close();
+    menu m;
+    m.meniu();
 }
 
 

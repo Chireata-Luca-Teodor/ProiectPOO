@@ -5,6 +5,7 @@ using namespace std;
 class DropTable
 {
     string nume_tabel;
+    //string file = nume_tabel + ".txt";
 public:
     void stergere(string nume_tabel)
     {

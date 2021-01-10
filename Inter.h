@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -25,6 +26,7 @@ public:
             test += input[i];
             i++;
         }
+        //cout << test;
         if (test == "CREATE")
         {
             test += input[i];
@@ -34,6 +36,7 @@ public:
                 test += input[i];
                 i++;
             }
+            //cout << endl << test;
             if (test == "CREATE TABLE")
             {
                 test.clear();
@@ -218,8 +221,7 @@ public:
                     }
                 }
                 else if (test == "UPDATE")
-                {
-                    //UPDATE nume_tabela SET nume_coloana = valoare WHERE nume_coloana = valoare
+                {//UPDATE nume_tabela SET nume_coloana = valoare WHERE nume_coloana = valoare
                     i++;
                     test = "";
                     test += input[i];
@@ -274,5 +276,6 @@ public:
                 else {
                     cout << "Comanda este gresita!" << endl;
                 }
+
     }
 };

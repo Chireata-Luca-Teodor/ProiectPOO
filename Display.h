@@ -25,6 +25,8 @@ public:
         word.clear();
         while (!file.eof())
         {
+            //file >> s;
+            //cout << s << "     |";
             x = file.get();
             if (x == '\n')
             {
@@ -54,10 +56,12 @@ public:
             word = word + x;
             x = data.get();
         }
-        cout << word << " ";
+        cout << word << " "; /*<< "     |";*/
         word.clear();
         while (!data.eof())
         {
+            //file >> s;
+            //cout << s << "     |";
             x = data.get();
             while (x != ' ' && !data.eof())
             {

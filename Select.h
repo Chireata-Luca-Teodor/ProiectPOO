@@ -33,6 +33,7 @@ public:
                 if (word + x != "\n")
                 {
                     word = word + x;
+                    //x = file.get();
                 }
                 x = file.get();
             }

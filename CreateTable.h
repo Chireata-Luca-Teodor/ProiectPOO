@@ -13,6 +13,7 @@ private:
     int dimensiune;
     string valoare_implicita;
 public:
+    //CREATE TABLE nume_tabel (nume_coloana1, tip, dimensiune, val_implicita) (..)...
     void citire(string nume_tabel, string text)
     {
         verificare v;
@@ -53,6 +54,7 @@ public:
         {
             cout << "fisierul deja exista!";
         }
+
     }
     friend class inter;
     friend class verificare;
