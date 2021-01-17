@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include "Inter.h"
+#include "STL.h"
 
 using namespace std;
 class menu
@@ -11,13 +12,11 @@ public:
     void meniu()
     {
         Inter i;
-        string text;
+        string text, text2;
         char input[100];
-        cout << "Alegeti o optiune" << endl;
-        cout << "1.Vrei sa introduci comenzile din consola?" << endl << "2.Ai deja comenzile pregatite in fisiere?" << endl;
-        cout << "Optiune: ";
-        int a;
-        cin >> a;
+        cout << "Introdu ceva de genul: proiectPOO.exe comenzi.txt [comenzi2.txt];" << endl;
+        cin.getline(input, sizeof(input));
+        text2 += input;
         cout << endl;
         ifstream file;
         string word;
@@ -25,18 +24,42 @@ public:
         int sw = 0;
         int j = 15;
         string copie;
-        switch (a)
+        if (text2 == "proiectPOO.exe")
         {
-        case 1:
-            cin.getline(input, sizeof(input));
             cin.getline(input, sizeof(input));
             text += input;
             i.interp(text);
-            break;
-        case 2:
-            cout << "Introdu ceva de genul: proiectPOO.exe comenzi.txt [comenzi2.txt];" << endl;
-            cin.getline(input, sizeof(input));
-            cin.getline(input, sizeof(input));
+        }
+        else if (text2 == "meniu")
+        {
+            cout << endl;
+            cout << "1.vector" << endl << "2.set" << endl << "3.list" << endl << "4.map" << endl;
+            int a;
+            string file;
+            cin >> a;
+            stl b;
+            cout << "File: ";
+            cin >> file;
+            cout << endl;
+            b.file2 = file;
+            switch (a)
+            {
+            case 1:
+                b.vec();
+                break;
+            case 2:
+                b.set1();
+                break;
+            case 3:
+                b.lis();
+                break;
+            case 4:
+                b.map1();
+                break;
+            }
+        }
+        else
+        {
             text += input;
             while (j < text.length())
             {
@@ -64,7 +87,6 @@ public:
                 }
                 file.close();
             }
-            break;
         }
     }
 };

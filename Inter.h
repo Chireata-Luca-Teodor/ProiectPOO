@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Import.h"
 using namespace std;
 class Inter
 {
@@ -39,6 +40,8 @@ public:
             //cout << endl << test;
             if (test == "CREATE TABLE")
             {
+                ///.......
+                /// 
                 test.clear();
                 i++;
                 while (input[i] != ' ')
@@ -272,6 +275,27 @@ public:
                         u.update(table, valoare1, coloana1, coloana2, valoare2);
                     }
 
+                }
+                else if (test == "IMPORT")
+                {
+                    i++;
+                    string asd, asd2;
+                    while (input[i] != ' ')
+                    {
+                        asd += input[i];
+                        i++;
+                    }
+                    i++;
+                    while (input[i] != ' ' && i < input.length())
+                    {
+                        asd2 += input[i];
+                        i++;
+                    }
+                    import i;
+                    i.tabel = asd;
+                    i.fisier = asd2;
+                    i.separator = " ";
+                    i.imp();
                 }
                 else {
                     cout << "Comanda este gresita!" << endl;

@@ -145,6 +145,8 @@
     <ClInclude Include="CreateTable.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="DropTable.h" />
+    <ClInclude Include="STL.h" />
+    <ClInclude Include="Import.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="Verificare.h" />
     <ClInclude Include="Inter.h" />
